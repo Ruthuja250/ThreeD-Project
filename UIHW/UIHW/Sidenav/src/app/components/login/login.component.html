@@ -1,0 +1,122 @@
+<div class="bg-light py-3">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-md-12 mb-0"><h1>
+
+        <a href="index.html">Home</a> <span class="mx-2 mb-0">/</span>
+
+        <strong class="text-black">Login</strong></h1>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+
+<section class="vh-100">
+
+  <div class="container-fluid h-custom">
+
+    <div class="row d-flex justify-content-center align-items-center h-100">
+
+      <div class="col-md-9 col-lg-6 col-xl-5">
+
+        <img src="assets/img/t2.jpg" class="img-fluid" alt="Sample image">
+
+      </div>
+
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+
+        <form [formGroup]="loginForm">
+<div class="divider d-flex align-items-center my-4">
+
+            <label class="text-center fw-bold mx-3 mb-0"><b>Login Form</b></label>
+
+          </div>
+
+          <div class="form-outline mb-4">
+
+          <div class="dropdown">
+
+            <label for="lang"><b>Login As</b></label>
+
+            <br>
+
+            <select name="role" id="lang"   style="width: 100%;
+
+            height: 30px;
+
+            border-radius: 6px;border: 1px solid #ced4da;min-height: calc(1.5em + 1rem + 2px);
+
+            padding: 0.5rem 1rem;
+
+            font-size: 1.25rem;font-weight: 400 !important">
+
+               <option  value=undefined selected >Select a Role</option>
+
+              <option value="Admin" >Admin</option>
+
+              <option value="Doctor">Buyer</option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+          <!-- Email input -->
+
+          <div class="form-outline mb-4">
+
+            <label class="form-label" for="form3Example3"><b> EmailAddress</b></label>
+
+            <input type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Enter a valid email address" formControlName="userEmail">
+
+            <div class="form-text text-danger" *ngIf="EmailID.errors?.['required'] && (EmailID.touched || EmailID.dirty)">
+              Email is Required
+         </div>
+       
+          <div class="form-text text-danger" *ngIf="EmailID.errors?.['email'] && (EmailID.touched || EmailID.dirty)">Email is Invalid</div>
+
+          </div>
+
+          <!-- Password input -->
+
+          <div class="form-outline mb-3">
+
+            <label class="form-label" for="form3Example4"><b> Password </b></label>
+
+            <input type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter password" formControlName="userPassword">
+
+            <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.touched || Password.dirty)">Password is Required</div>
+            <div class="form-text text-danger" *ngIf="Password.errors?.['minlength'] || Password.errors?.['maxlength'] && 
+            (Password.touched || Password.dirty)">Password Should be at least 6 and max 15 characters long.</div>
+          
+
+          </div>
+          <div class="d-flex justify-content-between align-items-center">
+
+            <!-- Checkbox -->
+
+              <a href="#!" class="text-body">Forgot password?</a>
+
+          </div>
+          <div class="text-center text-lg-start mt-4 pt-2">
+
+            <button (click)="onSubmit()" type="submit"
+            class="btn btn-primary btn-block mt-4 w-100">Login</button>
+        <div class="text-center pt-4 text-muted">Don't have account? <a id="forget"
+                routerLink="/signup">Register</a></div>
+      </div>
+
+    
+
+ 

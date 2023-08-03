@@ -1,0 +1,104 @@
+<div class="grid-view" *ngIf="view ==='grid'">
+    <!-- <div class="mt-5"></div>
+    <div class="w-25"> -->
+    <div class ="card text-center">
+        <div class="card-header fw-bold fs-5 text-success">
+        Header
+      </div>
+      <div #modelContainer class="model-container">
+        <canvas id="canvas" class="card-img-top" appOpenProductDetails [productId]="product.id"></canvas>
+      </div>  
+      <!-- <div class="overflow-hidden d-flex justify-content-center align-items-center">
+        <img src="../../assets/Images/{{product.modelAccesoriess}}/{{product.id}}/1.glb" alt="" class="card-img-top"
+        appOpenProductDetails [productId]="product.id">
+      </div> -->
+      <div class="card-body">
+        <h5 class="card-title title" >{{product.title}}</h5>
+        <h6 class="card-subtitle my-2 text-primary" >{{product.quantity}} products are available</h6>
+        <p class="card-text description">{{product.description}}</p>
+      </div>
+      
+      <div class="card-body">
+        <h5 class="card-title text-success" >{{product.price}}
+        </h5>
+        </div>
+        <div class="card-footer d-grid gap-2">
+          <button class="btn btn-outline-success" type="button" (click)="this.utilityService.addToCart()">Add to cart</button>
+        </div>
+      
+      </div>
+      <!-- </div> -->
+      
+    
+    </div>
+    <div class="list-view" *ngIf="view ==='list'">
+        <!-- <div class="mt-5"></div>
+      <div class="mx-auto" style="width:70%; "> -->
+         <div class="card">
+             <div class="row">
+              <div  #modelContainer class="overflow-hidden d-flex justify-content-center align-items-center ">
+                <canvas id="canvas" class="card-img-top"></canvas>
+              </div> 
+                  <div class="col d-flex flex-column">
+                     <div class="card-header  text-center">
+                         Header
+                     </div>
+    
+                     <div class="card-body">
+                          <h5 class="card-title title">{{product.title}}</h5>
+                          <p class="card-text description">{{product.description}}</p>
+                          <h6 class="card-subtitle my-2 text-primary">{{product.quantity}} products are available</h6>
+                     </div>
+        
+                     <div class="card-body">
+                          <h5 class="card-title title text-muted" >Price : {{product.price}}</h5>
+                            </div>
+    
+                     <div class="card-footer text-muted d-grid gap-2">
+                         <button class="btn btn-outline-success" type="button" (click)="this.utilityService.addToCart()">Add to Cart</button>
+                     </div>
+                    </div>
+                </div>
+            </div>
+        <!-- </div> -->
+    </div>   
+    
+           <!-- Cart Item View -->
+    <div class="cart-item-view" *ngIf="view === 'currcartitem'">
+            <div class="card">
+              <div class="row g-0">
+                <div  #modelContainer class="overflow-hidden d-flex justify-content-center align-items-center ">
+                  <canvas id="canvas" class="card-img-top"></canvas>
+                </div> 
+                <div class="col-8 ">
+                  <div class="card-body">
+                    <h5 class="card-title title">{{product.title}}</h5>
+                    <h5 class="card-title text-success"> Price : {{product.price}}</h5>
+                      <span class="text-primary">{{product.quantity}}  products are available</span>
+                    
+                  </div>
+                  <div class="card-subtitle text-muted d-grid gap-2">
+                    <button class="btn btn-outline-success" type="button">Remove From Cart</button>
+                  </div>
+    
+                </div>
+    
+              </div>
+            </div>
+    
+    </div>
+    
+            <!-- Previous Cart -->
+     <div class="cart-item-view"*ngIf="view==='prevcartitem'">
+      <div class="card text-center">
+        <div  #modelContainer class="overflow-hidden d-flex justify-content-center align-items-center ">
+          <canvas id="canvas" class="card-img-top" ></canvas>
+        </div> 
+        <div class="card-body">
+          <h5 class="card-title title" > {{product.title}}</h5>
+        </div>
+      </div>
+     </div>
+    
+      
+    

@@ -1,0 +1,64 @@
+<!-- <router-outlet></router-outlet>  -->
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+    <a class="navbar-brand">Online Banking System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+<ul class="navbar-nav">
+<li class="nav-item">
+<a class="nav-link active" aria-current="page" routerLink="/**">Home</a>
+</li> -->
+
+<div id="horizontal-bar">
+    <!-- <button  routerLink="/signup">Sign Up</button>&nbsp;
+    <button  routerLink="/login">login</button>  -->
+    <!-- <div class="search">
+    <input type="text"  placeholder="Enter search query">
+    <button mat-icon-button class="button" >
+    <mat-icon>search</mat-icon>
+    </button>
+    </div> -->
+  <input type="text"  placeholder="Search...">&nbsp; 
+  <button data-option="logout" routerLink="/homepage"><mat-icon>power_settings_new</mat-icon></button>
+                
+</div> 
+    
+<body>
+         
+  <div id="vertical-bar">
+                
+    <button data-option="dashboard" routerLink="homepage"><mat-icon>home</mat-icon><h5>Dashboard</h5></button>
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">Categories</button>
+      <ul class="dropdown-menu fs-5">
+       <ng-container *ngFor="let item of navigationlist; let i =index;">
+          <li class="text-center fw-bold">
+            {{item.category | titlecase }}
+          </li>
+          <li *ngFor="let subcategory of item.subcategory"[style.cursor]="'pointer'" >
+            <a class="dropdown-item " appOpenProducts  [category]="{id:0, 'category': item.category,'subCategory':subcategory}">
+              {{subcategory | titlecase}}
+            </a>
+          </li>
+          <li *ngIf="i!==navigationlist.length-1">
+            <hr class="dropdown-divider">
+          </li>       
+        </ng-container>
+     </ul>
+    </div>
+  
+    <button type="button" class="btn btn-outline-light" routerLink="/Sample">Customized products </button>
+    <button type="button" class="btn btn-outline-light" routerLink="Cart">Cart
+      <span class="badge bg-warning text-dark">{{cartItems}}</span>
+    </button>
+    <button data-option="orderParts" routerLink="/order"><mat-icon>build</mat-icon><h5>Order Products</h5></button>
+    <button data-option="account" routerLink="/accountpage"><mat-icon>person</mat-icon><h5>Account</h5></button>
+  </div>   
+</body>
+
+        
+
+        

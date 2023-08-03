@@ -1,0 +1,66 @@
+
+<div class="container">
+  <div class="navbar-header nav-item">
+      <!-- <a routerLink="/home"><b>  
+    <span>PACT</span> </b></a> -->
+    <div id="vertical-bar">
+ 
+      <button data-option="dashboard" routerLink="/dashboard"><mat-icon>home</mat-icon><h5>Dashboard</h5></button>
+      <button data-option="userdetails" routerLink="/userdetails"><mat-icon>add</mat-icon><h5>User Details</h5></button>
+      <button data-option="orderdetails" routerLink="/userorders"><mat-icon>build</mat-icon><h5>Order Details</h5></button>
+      <button data-option="pendingApproval"><mat-icon>pending</mat-icon><h5>Pending Approvals</h5></button>
+      <button data-option="account" routerLink="/accountpage"><mat-icon>person</mat-icon><h5>Account</h5></button>
+   </div>   
+<br>
+
+<br>
+
+<h3>User Details</h3>
+
+<div class="space"></div>
+<button type="button" [routerLink]="['/Admin']" style="padding: 5px; width:80px; margin: 10px;"
+      class="btn btn-primary">Back</button>
+<!-- <button  style="margin: 50px; padding: 10px;" type="button" class="btn btn-primary" routerLink="/editpackage" style="background-color:rgb(123, 152, 232);">Edit Package</button> -->
+<!-- <div *ngIf="!products" class="loader"></div> -->
+<table data-page-length='5' class="table table-striped" aria-labelledby="tabelLabel">
+<thead>
+  <tr>
+       
+      
+      <th>user_id</th>
+      <th>username</th>
+      <th>userEmail</th>
+      <th>userPassword</th>
+      <th>city</th>
+      <th>gender</th>
+      <th>phonenumber</th>
+   
+       
+  </tr>
+</thead>
+<tbody>
+  <tr     *ngFor="let  user of  Users">
+       
+      
+      <td>{{user.user_id}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.userEmail}}</td>
+      <td>{{user.userPassword}}</td>
+      <td>{{user.city}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.phonenumber}}</td>
+
+      <td>
+        <!-- <button   (click)="Accept(user.id)" class="btn btn-primary btn-block " >Accept</button></td> -->
+        <!-- <button type="button" class="btn btn-primary" id=edit data-bs-toggle="modal"
+        data-bs-target="#exampleModel" (click)="SetUserValues(user)"><i
+          class="fa-solid fa-pen-to-square"></i></button>
+
+      <button type="button" class="btn btn-danger" id=delete (click)="DeleteUser(user)"><i
+          class="fa-solid fa-person-circle-minus"></i></button> -->
+    </td>
+       
+  </tr>
+</tbody>
+</table>
+

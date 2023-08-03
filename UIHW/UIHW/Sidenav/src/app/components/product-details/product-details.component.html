@@ -1,0 +1,82 @@
+<div class="my-container mx-auto border border-dark">
+    <div class="row g-0">
+        <!-- Profile Image Of Product -->
+        <!-- <div class="col-4 ">
+            <div class="d-flex justify-content-between align-items-center">
+                <img src="../../assets/Images//{{imageIndex}}.glb"
+                    alt="" class="w-100">
+            </div>{{product.modelAccesoriess.subCategory}}/{{product.id}}
+            <div class="image-thumbnails mt-5 d-flex justify-content-between align-items-center">
+                <img src="../../assets/Images/{{product.modelAccesoriess.subCategory}}/{{product.id}}/1.glb"
+                    alt="Thumbnail Image" (click)="imageIndex=1">
+                <img src="../../assets/Images/{{product.modelAccesoriess.subCategory}}/{{product.id}}/2.glb"
+                    alt="Thumbnail Image" (click)="imageIndex=2">
+                <img src="../../assets/Images/{{product.modelAccesoriess.subCategory}}/{{product.id}}/3.glb"
+                    alt="Thumbnail Image" (click)="imageIndex=3">
+                <img src="../../assets/Images/{{product.modelAccesoriess.subCategory}}/{{product.id}}/4.glb"
+                    alt="Thumbnail Image" (click)="imageIndex=4">
+
+            </div>
+        </div> -->
+
+        <div class="col-4">
+          
+          <div class="d-flex justify-content-between align-items-center">
+           
+            <canvas #modelContainer class="canvas"></canvas>
+          </div>
+          <div class="image-thumbnails mt-5 d-flex justify-content-between align-items-center">
+           
+            <canvas class="thumbnail-container" (click)="onThumbnailClick(1)"></canvas>
+            <canvas class="thumbnail-container" (click)="onThumbnailClick(2)"></canvas>
+            <canvas class="thumbnail-container" (click)="onThumbnailClick(3)"></canvas>
+            <canvas class="thumbnail-container" (click)="onThumbnailClick(4)"></canvas>
+          </div>
+        </div>
+        
+        <!-- Details of Product -->
+        <div class="col-8 p-4">
+            <div>
+                <div class="card">
+                    <div class="card-header">
+                        <h2>{{product.title | titlecase}}</h2>
+
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-Title text-success"> {{product.price}}</h1>
+
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-subtitle my-2 text-primary">{{product.quantity}} products are available</h6>
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-outline-success"
+                                (click)="this.utilityService.addToCart()">Add to Cart</button>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-text">Description</h5>
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-action"
+                                *ngFor="let item of product.description.split('. ')">
+                                {{item}}
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SuggestedProduct -->
+    </div>
+    <div class="row g-0">
+        <div class="col12 ps-5 pt-4 pb-3">
+            <h3 class="border border-secondary text-center py-2 my-rounded-corner w-25">Related Products</h3>
+        </div>
+        <div class="col12">
+            <app-suggested-product [category]="product.modelAccesoriess"></app-suggested-product>
+        </div>
+    </div>
+</div>

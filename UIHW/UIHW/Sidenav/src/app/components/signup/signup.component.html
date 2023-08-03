@@ -1,0 +1,364 @@
+<div class="bg-light py-3">
+ <div class="container">
+    <div class="row">
+      <div class="col-md-12 mb-0"><h1>
+<a href="index.html">Home</a> <span class="mx-2 mb-0">/</span>
+    <strong class="text-black">Sign-Up</strong></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+  <div class="col">
+   <div class="card card-registration my-4">
+          <div class="row g-0">
+
+            <div class="col-xl-6 d-none d-xl-block">
+
+
+
+
+              <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/img4.webp"
+
+
+
+
+                alt="Sample photo" class="img-fluid"
+
+
+
+
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+
+
+
+
+            </div>
+
+
+
+
+            <div class="col-xl-6">
+
+
+
+
+              <div class="card-body p-md-5 text-black">
+
+
+
+
+                <h3 class="mb-5 text-uppercase"><b>User Registration Form</b></h3>
+
+
+
+
+                <form [formGroup]="registerForm" (ngSubmit)="registerSubmitted()">
+
+
+
+
+                  <!-- <form #form="ngForm" (submit)="registerSubmitted(form)"> -->
+
+
+
+
+                    <div class="form-outline">
+
+
+
+
+                      <label class="form-label" for="name"><b>Username</b></label>
+
+
+
+
+                      <input type="text" id="name" class="form-control form-control-lg" formControlName="username">
+
+                     
+
+                      <div clas="form-text text-danger" *ngIf="username.errors?.['required'] && (username.touched || username.dirty)">
+
+                        Name is Required
+
+                   </div>
+
+      <div class="form-text text-danger" *ngIf="username.errors?.['minlength']&& (username.touched || username.dirty)">
+
+                 Name is too Short
+
+      </div>
+
+
+
+
+      <div class="form-text text-danger" *ngIf="username.errors?.['pattern']&& (username.touched || username.dirty)">
+
+                 Name Should start with Alphabet
+
+      </div>
+     </div>
+         <div class="form-outline mb-4">
+                      <label class="form-label" for="email"><b>UserEmail</b></label>
+                      <input type="text" id="email" class="form-control form-control-lg" formControlName="userEmail">
+                      <div class="form-text text-danger" *ngIf="userEmail.errors?.['required'] && (userEmail.touched || userEmail.dirty)">
+
+                        Email is Required
+
+                   </div>
+
+                 
+
+                    <div class="form-text text-danger" *ngIf="userEmail.errors?.['email'] && (userEmail.touched || userEmail.dirty)">Email is Invalid</div>
+
+                   </div>
+                  <div class="form-outline mb-4">
+
+
+
+
+                      <label class="form-label" for="password"><b>UserPassword</b></label>
+
+
+
+
+                      <input type="password" id="password" class="form-control form-control-lg" formControlName="userPassword">
+
+
+
+
+                      <div class="form-text text-danger" *ngIf="userPassword.errors?.['required'] && (userPassword.touched || userPassword.dirty)">Password is Required</div>
+
+                      <div class="form-text text-danger" *ngIf="userPassword.errors?.['minlength'] || userPassword.errors?.['maxlength'] &&
+
+                      (userPassword.touched || userPassword.dirty)">Password Should be at least 6 and max 15 characters long.</div>
+                      <!-- <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span> -->
+
+                    </div>
+
+
+
+
+                    <div class="form-outline mb-4">
+
+
+
+
+                      <label class="form-label" for="rpwd"><b>ConfirmPassword</b></label>
+
+
+
+
+                      <input type="password" id="rpwd" class="form-control form-control-lg" formControlName="rpwd">
+    <div class="form-text text-danger" *ngIf="invalidrpwd">Doesn't match with Password!</div>
+
+                <!-- <div class="d-md-flex justify-content-start align-items-center mb-4 py-2">
+
+
+                  <h3 class="mb-0 me-4"><b>Gender</b> </h3>
+
+                  <div class="form-check form-check-inline mb-0 me-4">
+
+
+
+
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender"
+
+
+
+
+                      value="option1" formcontrolname="gender">
+
+
+
+
+                    <label class="form-check-label" for="femaleGender">Female</label>
+
+
+
+
+                  </div>
+        <div class="form-check form-check-inline mb-0 me-4">
+
+
+
+
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender"
+
+
+
+
+                      value="option2" formcontrolname="gender">
+
+                    <label class="form-check-label" for="maleGender">Male</label>
+
+                  </div>
+
+                  <div class="form-check form-check-inline mb-0">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender"
+
+
+
+
+                      value="option3" formcontrolname="gender">
+
+
+
+
+                    <label class="form-check-label" for="otherGender">Other</label>
+
+
+
+
+                  </div>
+
+
+
+
+
+
+
+                </div> -->
+                <div class="col mb-3">
+
+     
+
+                  <div class="m-1"><b>Gender</b></div>
+
+                  <div class="form-check form-check-inLine">
+
+                    <input type="radio" class="form-check-input" value="Male" id="male" formControlName="gender">
+
+                    <label class="form-check-label" for="male">Male</label>
+
+                  </div>
+
+
+
+
+             
+
+                 <div class="form-check form-check-inLine">
+
+                  <input type="radio" class="form-check-input" value="Female" id="female" formControlName="gender">
+
+                  <label class="form-check-label" for="female">Female</label>
+
+                </div>
+                
+
+                <div class="form-text text-danger" *ngIf="gender.errors?.['required'] && (gender.touched || gender.dirty)">Select Gender </div>
+                <div class="form-check form-check-inLine">
+
+                  <input type="radio" class="form-check-input" value="Other" id="other" formControlName="gender">
+
+                  <label class="form-check-label" for="other">Other</label>
+
+                </div>
+                 </div>
+
+                  <div class="col-md-6 mb-4">
+
+
+
+
+                    <label class="form-label" for="form3Example1m"><b>City</b></label> &nbsp;
+
+
+
+
+                   
+
+                    <input type="text" class="form-control" id="city" placeholder="delhi" formControlName="city">
+
+                    <div class="form-text text-danger" *ngIf="city.errors?.['required'] && (city.touched || city.dirty)">City is Required</div>
+
+
+
+
+
+
+                  </div>
+
+
+                </div>
+                <div class="form-outline mb-4">
+
+
+
+
+                  <label class="form-label" for="mobile"><b>Phonenumber</b></label>
+
+
+
+
+                  <input type="text" id="mobile" class="form-control form-control-lg" formControlName="phonenumber">
+
+
+
+
+                  <div class="form-text text-danger" *ngIf="phonenumber.errors?.['required'] && (phonenumber.touched || phonenumber.dirty)">Number is Required</div>
+
+                  <div class="form-text text-danger" *ngIf="phonenumber.errors?.['pattern'] && (phonenumber.touched || phonenumber.dirty)">Number is Invalid</div>
+
+                   <div class="form-text text-danger" *ngIf="phonenumber.errors?.['minlength']|| phonenumber.errors?.['maxlength'] && (phonenumber.touched || phonenumber.dirty)">Number Length Should be 10 digits </div>
+
+
+
+
+
+                </div>
+
+
+
+                <div class="d-flex justify-content-end pt-3">
+
+
+
+
+                  <button type="submit"  class="btn btn-light btn-lg" (click)="registerSubmitted()" routerLink="/login"  > Sign-Up</button>
+
+
+
+
+                  <button type="button"  class="btn btn-danger btn-lg ms-2" routerLink="/homepage">Cancel</button>
+
+                </div>
+
+              </form>
+
+              <a routerLink="/login" >Already Register ? click to Login</a>
+
+            </div>
+
+
+
+
+            </div>
+
+
+
+
+          </div>
+
+
+
+
+        </div>
+
+
+
+
+      </div>
+
+
+
+
+    </div>
+
+  </div>
+
+
+</section>
